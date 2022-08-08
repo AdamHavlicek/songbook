@@ -24,6 +24,13 @@
     - __SongPart subtypes__ (based on type enum):
         - SongPart\<Chorus>
         - SongPart\<Verse>
+- ### Chords:
+    - type
+    - chords
+    - songPartId
+    - __Chords subtypes__ (based on type enum):
+        - Chords\<Piano>
+        - Chords\<Guitar>
 
 ## Tech Stack:
 - [Kotlin]() - 1.7.10
@@ -41,3 +48,5 @@
 ## Useful links:
 - [Kotlin Native Clean Architecture](https://proandroiddev.com/clean-architecture-example-with-kotlin-multiplatform-c361bb283fd0?gi=da2a47bbfaa5)
 - [Clean Architecture In Android](https://www.geeksforgeeks.org/what-is-clean-architecture-in-android/#:~:text=Clean%20architecture%20is%20a%20method,goal%20should%20be%20rendered%20obsolete.)
+- [JetPack Compose basics](https://www.youtube.com/watch?v=qvDo0SKR8-k)
+- [Jetpack Compose State Management](https://www.raywenderlich.com/30172122-managing-state-in-jetpack-compose)
