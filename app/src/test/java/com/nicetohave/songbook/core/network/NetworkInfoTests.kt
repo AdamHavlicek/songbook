@@ -29,7 +29,7 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
     override fun extensions(): List<Extension> = listOf(
         KoinExtension(
             module = module,
-            mode = KoinLifecycleMode.Root,
+            mode = KoinLifecycleMode.Test,
             mockProvider = {
                 mockkClass(it, relaxed = true)
             }

@@ -59,7 +59,7 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Android Ktx
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -88,7 +88,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     // Integration with observables
     implementation "androidx.compose.runtime:runtime-livedata:$compose_tooling_version"
-    implementation "androidx.compose.runtime:runtime-rxjava2:$compose_tooling_version"
+    implementation "androidx.compose.runtime:runtime-rxjava3:$compose_tooling_version"
 
     // Moshi
     implementation "com.squareup.moshi:moshi:$moshi_version"
@@ -117,8 +117,6 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
     // Jetpack Compose
     implementation "io.insert-koin:koin-androidx-compose:$koin_version"
-    // Koin for Ktor
-    implementation "io.insert-koin:koin-ktor:$koin_version"
     // Koin annotations
     implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
     ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
