@@ -141,6 +141,8 @@ dependencies {
     testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
     testImplementation "io.kotest.extensions:kotest-extensions-koin:$kotest_koin_version"
     testImplementation "io.kotest.extensions:kotest-assertions-arrow:$kotest_arrow_version"
+    testImplementation("com.appmattus.fixture:fixture-kotest:$kotest_fixture_version")
     // Mockk
     testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "io.mockk:mockk-agent-jvm:$mockk_version"
 }
