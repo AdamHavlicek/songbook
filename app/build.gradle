@@ -130,6 +130,8 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$android_test_version"
     testImplementation "io.insert-koin:koin-test:$koin_version"
     testImplementation "io.ktor:ktor-client-mock:$ktor_version"
+    // Ktor
+    testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
     // UI Tests
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_tooling_version"
     // Kotest

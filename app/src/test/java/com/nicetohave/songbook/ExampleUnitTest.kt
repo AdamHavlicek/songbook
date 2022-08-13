@@ -23,7 +23,9 @@ class CheckModulesTest : ShouldSpec(), KoinTest {
         context("[Koin Modules]") {
             should("check all modules") {
                 // Assert
+
                 checkModules {
+                    properties(mapOf("network_info_host" to "https://1.1.1.1"))
                     modules(AndroidAppModule().module)
                 }
             }

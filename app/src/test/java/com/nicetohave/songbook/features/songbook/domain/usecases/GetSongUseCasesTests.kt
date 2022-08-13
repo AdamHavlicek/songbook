@@ -1,5 +1,6 @@
 package com.nicetohave.songbook.features.songbook.domain.usecases
 
+import com.nicetohave.songbook.core.network.NetworkInfo
 import com.nicetohave.songbook.features.songbook.data.datasources.SongLocalDataSource
 import com.nicetohave.songbook.features.songbook.data.datasources.SongLocalDataSourceImpl
 import com.nicetohave.songbook.features.songbook.data.repositories.SongRepositoryImpl
@@ -46,7 +47,7 @@ class GetSongUseCasesTests : ShouldSpec(), KoinTest {
         context("[GetSongUseCase]") {
             should("be inject with fake repository") {
                 // Arrange
-                declare { }
+                val mockNetworkInfo = declareMock<NetworkInfo> { }
                 val mockSongLocalDataSource = declareMock<SongLocalDataSource>()
 
                 // Act
