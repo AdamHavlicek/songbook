@@ -6,11 +6,8 @@ import io.kotest.koin.KoinExtension
 import io.kotest.koin.KoinLifecycleMode
 import io.kotest.matchers.shouldBe
 import io.ktor.client.*
+import io.ktor.client.engine.mock.*
 import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import io.ktor.server.testing.*
 import io.mockk.mockkClass
 import org.koin.dsl.module
 import org.koin.test.KoinTest
@@ -43,53 +40,35 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
         context("[isConnected]") {
             should("return true") {
                 // Arrange
+                declare {
+                    val mockEngine = MockEngine { _ ->
+                        respondOk("")
+                    }
+                    HttpClient(mockEngine)
+                }
                 val tNetworkInfo by inject<NetworkInfo>()
 
                 // Act
-                testApplication {
-                    val httpClient = createClient {
+                val result = tNetworkInfo.isConnected()
 
-                    }
-                    declare<HttpClient> { httpClient }
-                    externalServices {
-                        hosts(urlHost) {
-                            this.routing {
-                                get("/") {
-                                    call.respond(HttpStatusCode.OK)
-                                }
-                            }
-                        }
-                    }
-                    val result = tNetworkInfo.isConnected()
-
-                    // Assert
-                    result shouldBe true
-                }
+                // Assert
+                result shouldBe true
             }
             should("return false") {
                 // Arrange
+                declare {
+                    val mockEngine = MockEngine { _ ->
+                        respondError(HttpStatusCode.BadRequest)
+                    }
+                    HttpClient(mockEngine)
+                }
                 val tNetworkInfo by inject<NetworkInfo>()
 
                 // Act
-                testApplication {
-                    val httpClient = createClient {
-
-                    }
-                    declare<HttpClient> { httpClient }
-                    externalServices {
-                        hosts(urlHost) {
-                            this.routing {
-                                get("/") {
-                                    call.respond(HttpStatusCode.BadRequest)
-                                }
-                            }
-                        }
-                    }
-                    val result = tNetworkInfo.isConnected()
+                val result = tNetworkInfo.isConnected()
 
                     // Assert
                     result shouldBe false
-                }
             }
         }
     }
