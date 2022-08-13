@@ -29,7 +29,7 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
     override fun extensions(): List<Extension> = listOf(
         KoinExtension(
             module = module,
-            mode = KoinLifecycleMode.Test,
+            mode = KoinLifecycleMode.Root,
             mockProvider = {
                 mockkClass(it, relaxed = true)
             }
@@ -67,8 +67,8 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
                 // Act
                 val result = tNetworkInfo.isConnected()
 
-                    // Assert
-                    result shouldBe false
+                // Assert
+                result shouldBe false
             }
         }
     }
