@@ -1,6 +1,6 @@
 package com.nicetohave.songbook
 
-import com.nicetohave.songbook.di.AndroidAppModule
+import com.nicetohave.songbook.core.modules.AndroidAppModule
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
@@ -17,7 +17,7 @@ class MyFirstTestClass : FunSpec({
 
 })
 
-class CheckModulesTest: ShouldSpec(), KoinTest {
+class CheckModulesTest : ShouldSpec(), KoinTest {
 
     init {
         context("[Koin Modules]") {

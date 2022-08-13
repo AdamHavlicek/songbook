@@ -1,7 +1,7 @@
 package com.nicetohave.songbook
 
 import android.app.Application
-import com.nicetohave.songbook.di.AndroidAppModule
+import com.nicetohave.songbook.core.modules.AndroidAppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

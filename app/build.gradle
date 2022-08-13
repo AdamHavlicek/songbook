@@ -6,12 +6,12 @@ plugins {
 apply plugin: 'com.google.devtools.ksp'
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.nicetohave.songbook"
         minSdk 28
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "0.0.1"
 
@@ -63,7 +63,7 @@ dependencies {
 
     // Android Ktx
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha15'
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha16'
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -140,7 +140,7 @@ dependencies {
     testImplementation "io.kotest:kotest-property:$kotest_version"
     testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
     testImplementation "io.kotest.extensions:kotest-extensions-koin:$kotest_koin_version"
-    testImplementation "io.kotest.extensions:kotest-assertions-arrow:1.2.5"
+    testImplementation "io.kotest.extensions:kotest-assertions-arrow:$kotest_arrow_version"
     // Mockk
     testImplementation "io.mockk:mockk:$mockk_version"
 }
