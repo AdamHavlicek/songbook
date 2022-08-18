@@ -74,8 +74,7 @@ fun ScreenContent() {
         Greeting(name = "There")
         Counter(
             count = counterState,
-            updateCount = {
-                newCount -> 
+            updateCount = { newCount ->
                 counterState = newCount
             }
         )

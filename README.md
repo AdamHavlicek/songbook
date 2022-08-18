@@ -42,11 +42,16 @@
 - [Koin](https://insert-koin.io/?ref=hackernoon.com) (DI)
 - [kotest](https://kotest.io/) (test framework)
 - [ktor](https://ktor.io/docs/getting-started-ktor-client.html#make-request) (request client)
+- [Scrape{it}](https://docs.skrape.it/docs/)
 
 - ### [Nearby Connections API](https://developers.google.com/nearby/connections/overview)
 
 ## Useful links:
 - [Kotlin Native Clean Architecture](https://proandroiddev.com/clean-architecture-example-with-kotlin-multiplatform-c361bb283fd0?gi=da2a47bbfaa5)
 - [Clean Architecture In Android](https://www.geeksforgeeks.org/what-is-clean-architecture-in-android/#:~:text=Clean%20architecture%20is%20a%20method,goal%20should%20be%20rendered%20obsolete.)
+- [Android Clean Architecture Kotlin](https://github.com/android10/Android-CleanArchitecture-Kotlin/)
 - [JetPack Compose basics](https://www.youtube.com/watch?v=qvDo0SKR8-k)
 - [Jetpack Compose State Management](https://www.raywenderlich.com/30172122-managing-state-in-jetpack-compose)
+- [Pisnicky](https://www.pisnicky.cz)
+- [Chord Notation](https://en.wikipedia.org/wiki/Chord_notation)
+- [Chord Symbols](https://jazz-library.com/articles/chord-symbols/)

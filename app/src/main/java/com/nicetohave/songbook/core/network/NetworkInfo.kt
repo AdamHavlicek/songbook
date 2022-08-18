@@ -3,6 +3,8 @@ package com.nicetohave.songbook.core.network
 import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
+import com.nicetohave.songbook.core.exception.BaseException
+import com.nicetohave.songbook.core.exception.NetworkException
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
@@ -23,7 +25,7 @@ class NetworkInfoImpl(
     private val urlHost: String
 ) : NetworkInfo() {
 
-    private suspend fun getResponseCodeAsync(): Deferred<Either<Exception, HttpStatusCode>> {
+    private suspend fun getResponseCodeAsync(): Deferred<Either<NetworkException, HttpStatusCode>> {
         return coroutineScope {
             async {
                 try {
@@ -32,7 +34,8 @@ class NetworkInfoImpl(
                     ).status.right()
 
                 } catch (exception: Exception) {
-                    exception.left()
+                    val message = exception.message
+                    NetworkException(message = message.orEmpty()).left()
                 }
             }
         }
