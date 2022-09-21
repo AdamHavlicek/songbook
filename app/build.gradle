@@ -22,9 +22,6 @@ android {
     }
 
     buildTypes {
-        debug {
-            testCoverageEnabled true
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -45,19 +42,22 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
+            pickFirsts += 'mozilla/public-suffix-list.txt'
         }
     }
     testOptions {
-        unitTests.includeAndroidResources = true
         unitTests.all {
             useJUnitPlatform()
         }
     }
+    namespace 'com.nicetohave.songbook'
 
-    applicationVariants.all { variant ->
-        variant.sourceSets.java.each {
-            it.srcDirs += "build/generated/ksp/${variant.name}/kotlin"
+    applicationVariants.configureEach { variant ->
+        kotlin.sourceSets {
+            getByName(name) {
+                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
+            }
         }
     }
 }
@@ -66,8 +66,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Android Ktx
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha16'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.compose.material3:material3:1.0.0-beta02'
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -93,6 +93,9 @@ dependencies {
     // Integration with observables
     implementation "androidx.compose.runtime:runtime-livedata:$compose_tooling_version"
     implementation "androidx.compose.runtime:runtime-rxjava3:$compose_tooling_version"
+
+    // Skrape{it}
+    implementation "it.skrape:skrapeit:$skrapeit_version"
 
     // Moshi
     implementation "com.squareup.moshi:moshi:$moshi_version"
@@ -120,7 +123,8 @@ dependencies {
     // Navigation Graph
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
     // Jetpack Compose
-    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+    implementation "io.insert-koin:koin-androidx-compose:3.2.0"
+    // implementation "io.insert-koin:koin-androidx-compose:$koin_version"
     // Koin annotations
     implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
     ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
@@ -142,10 +146,10 @@ dependencies {
     }
     testImplementation "io.kotest:kotest-runner-junit5:$kotest_version"
     testImplementation "io.kotest:kotest-property:$kotest_version"
+    testImplementation "io.kotest:kotest-framework-datatest:$kotest_version"
     testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
     testImplementation "io.kotest.extensions:kotest-extensions-koin:$kotest_koin_version"
     testImplementation "io.kotest.extensions:kotest-assertions-arrow:$kotest_arrow_version"
-    testImplementation("com.appmattus.fixture:fixture-kotest:$kotest_fixture_version")
     // Mockk
     testImplementation "io.mockk:mockk:$mockk_version"
     testImplementation "io.mockk:mockk-agent-jvm:$mockk_version"

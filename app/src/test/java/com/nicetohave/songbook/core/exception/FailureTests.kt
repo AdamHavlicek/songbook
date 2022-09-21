@@ -1,4 +1,4 @@
-package com.nicetohave.songbook.exception
+package com.nicetohave.songbook.core.exception
 
 import com.nicetohave.songbook.core.exception.ServerFailure as tFailure
 import io.kotest.core.spec.style.ShouldSpec

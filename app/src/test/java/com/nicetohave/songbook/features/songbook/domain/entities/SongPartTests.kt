@@ -1,5 +1,6 @@
 package com.nicetohave.songbook.features.songbook.domain.entities
 
+import com.nicetohave.songbook.core.enums.SongPartType
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.ints.shouldBeExactly
 import io.kotest.matchers.shouldBe

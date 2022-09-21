@@ -6,7 +6,7 @@ data class Song(
     val url: String,
     val baseTranspose: String,
     val indexesOfVerses: Collection<String>,
-    val songParts: Collection<SongPart> = listOf()
+    val songParts: Collection<SongPart> = emptyList()
 ) {
 
 }

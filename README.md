@@ -55,3 +55,4 @@
 - [Pisnicky](https://www.pisnicky.cz)
 - [Chord Notation](https://en.wikipedia.org/wiki/Chord_notation)
 - [Chord Symbols](https://jazz-library.com/articles/chord-symbols/)
+- [Flutter piano](https://pub.dev/packages/piano)

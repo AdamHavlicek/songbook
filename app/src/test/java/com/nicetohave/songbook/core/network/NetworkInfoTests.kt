@@ -6,6 +6,7 @@ import io.kotest.koin.KoinExtension
 import io.kotest.koin.KoinLifecycleMode
 import io.kotest.matchers.shouldBe
 import io.ktor.client.*
+import io.ktor.client.engine.*
 import io.ktor.client.engine.mock.*
 import io.ktor.http.*
 import io.mockk.mockkClass
@@ -24,6 +25,9 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
                 urlHost = urlHost
             )
         }
+        single {
+            HttpClient(engine = get())
+        }
     }
 
     override fun extensions(): List<Extension> = listOf(
@@ -40,11 +44,10 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
         context("[isConnected]") {
             should("return true") {
                 // Arrange
-                declare {
-                    val mockEngine = MockEngine { _ ->
+                declare<HttpClientEngine> {
+                    MockEngine { _ ->
                         respondOk("")
                     }
-                    HttpClient(mockEngine)
                 }
                 val tNetworkInfo by inject<NetworkInfo>()
 
@@ -56,11 +59,10 @@ class NetworkInfoTests : ShouldSpec(), KoinTest {
             }
             should("return false") {
                 // Arrange
-                declare {
-                    val mockEngine = MockEngine { _ ->
+                declare<HttpClientEngine> {
+                    MockEngine { _ ->
                         respondError(HttpStatusCode.BadRequest)
                     }
-                    HttpClient(mockEngine)
                 }
                 val tNetworkInfo by inject<NetworkInfo>()
 
