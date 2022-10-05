@@ -2,9 +2,8 @@ buildscript {
     ext {
         androidx_version = '1.9.0'
         android_version = '7.3.0'
-        kotlin_version = '1.7.10'
-        // INFO: UPDATE WITH VERSION OF KOTLIN https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-        compose_version = '1.3.1'
+        kotlin_version = '1.7.20'
+        compose_version = '1.3.2'
         lifecycle_version = '2.5.1'
         // INFO: UPDATE IT ASAP https://mvnrepository.com/artifact/androidx.compose.ui/ui-test-manifest?repo=google
         compose_tooling_version = '1.3.0-beta03'
@@ -12,10 +11,10 @@ buildscript {
         koin_ksp_version = '1.0.3'
         ksp_version = "$kotlin_version-1.0.6"
         kotest_koin_version = "1.1.0"
-        kotest_version = "5.4.2"
+        kotest_version = '5.5.0'
         junit5_version = "5.8.2"
         moshi_version = '1.14.0'
-        ktor_version = '2.1.1'
+        ktor_version = '2.1.2'
         android_test_version = "1.4.0"
         nearby_connections_version = "18.3.0"
         arrow_version = '1.1.3'
