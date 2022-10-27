@@ -67,13 +67,13 @@ dependencies {
 
     // Android Ktx
     implementation "androidx.core:core-ktx:$androidx_version"
-    implementation 'androidx.compose.material3:material3:1.0.0-beta03'
+    implementation 'androidx.compose.material3:material3:1.1.0-alpha01'
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // Material design
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation "androidx.compose.ui:ui:$compose_tooling_version"
     // Tooling support (Previews, etc.)
     implementation "androidx.compose.ui:ui-tooling:$compose_tooling_version"
@@ -87,7 +87,7 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$compose_tooling_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_tooling_version"
     // Integration with activities
-    implementation 'androidx.activity:activity-compose:1.6.0'
+    implementation 'androidx.activity:activity-compose:1.6.1'
     // Integration with ViewModels
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     // Integration with observables
@@ -123,8 +123,7 @@ dependencies {
     // Navigation Graph
     implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
     // Jetpack Compose
-    implementation 'io.insert-koin:koin-androidx-compose:3.2.1'
-    // implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+     implementation "io.insert-koin:koin-androidx-compose:$koin_version"
     // Koin annotations
     implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
     ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
@@ -135,7 +134,8 @@ dependencies {
     androidTestImplementation "androidx.test:core-ktx:$android_test_version"
     androidTestImplementation "androidx.test:core:$android_test_version"
     androidTestImplementation "androidx.test:rules:$android_test_version"
-    testImplementation "io.insert-koin:koin-test:$koin_version"
+    // testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation "io.insert-koin:koin-test:3.2.2"
     // Ktor
     testImplementation "io.ktor:ktor-client-mock:$ktor_version"
     // UI Tests
